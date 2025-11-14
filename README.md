@@ -1,28 +1,31 @@
-<p align="center">
-  <img src="banner_image.png" width="100%">
-</p>
 Wine Quality Classification using Artificial Neural Networks (ANN)
+<p align="center"> <img src="banner_image.png" width="100%"> </p>
+1. Project Overview
 
-This project implements a lightweight Artificial Neural Network to classify wine samples as Good or Bad based on their physicochemical properties. The model is trained on the WineQT dataset and follows a complete machine learning workflow including preprocessing, model training, evaluation, and result visualization.
-The entire implementation is contained in a single Jupyter Notebook (ANN.ipynb) supported by one dataset file (WineQT.csv).
+This project implements a lightweight Artificial Neural Network (ANN) to classify wine samples as Good or Bad based on their chemical composition.
+The workflow includes data preprocessing, ANN model training, evaluation, and performance visualization.
+All logic is contained within a single Jupyter Notebook (ANN.ipynb) supported by the dataset (WineQT.csv).
 
-Project Files
-ANN.ipynb        - Notebook containing the complete ANN workflow
-WineQT.csv       - Dataset used for training and evaluation
-banner.png       - Optional project banner for GitHub
+2. Project Files
+ANN.ipynb        - Complete ANN model and workflow
+WineQT.csv       - Dataset used for model training and testing
+banner_image.png - Repository banner
 README.md        - Documentation
 
-Project Overview
+3. Objective
 
-The objective of this project is to build an ANN that predicts whether a wine sample is of good quality. The dataset provides several chemical attributes such as acidity, alcohol content, sulphates, pH, and density. The target variable quality is converted into a binary label:
+The goal is to predict wine quality using ANN.
+The dataset provides physicochemical parameters such as acidity, pH, alcohol, sulphates, and density.
 
-1 → Good quality (quality score ≥ 6)
+The quality score is converted into a binary label:
 
-0 → Bad quality (quality score < 6)
+Good Quality (1) → quality ≥ 6
 
-The neural network is trained on these features to learn the patterns associated with wine quality classification.
+Bad Quality (0) → quality < 6
 
-Dataset Description
+The ANN learns patterns between the features and the quality label.
+
+4. Dataset Description
 
 WineQT.csv contains the following attributes:
 
@@ -48,64 +51,66 @@ sulphates
 
 alcohol
 
-quality (numeric target that is later binarized)
+quality
 
-Missing values, if present, are removed using a basic cleaning step.
+Basic cleaning is applied using dropna() if necessary.
 
-Model Architecture
+5. Model Architecture
 
-The ANN implemented in the notebook uses the following architecture:
+The ANN architecture defined in the notebook is:
 
 Input Layer: 12 features
 
-Hidden Layer 1: 12 neurons, ReLU activation
+Hidden Layer 1: 12 neurons, ReLU
 
-Hidden Layer 2: 8 neurons, ReLU activation
+Hidden Layer 2: 8 neurons, ReLU
 
-Output Layer: 1 neuron, Sigmoid activation
+Output Layer: 1 neuron, Sigmoid
 
 Loss Function: Binary Crossentropy
 
 Optimizer: Adam
 
-Metrics: Accuracy
+Metric: Accuracy
 
-Training: 50 epochs, batch size 32, 20% validation split
+Training: 50 epochs, batch size 32, with validation split
 
-This architecture provides a balance between simplicity and classification performance.
+This setup provides a simple but effective classification model.
 
-Steps Followed in the Notebook
-1. Data Loading
+6. Steps Followed
+6.1 Data Loading
 
-The dataset is imported using pandas and viewed for initial understanding.
+Importing and inspecting the dataset using Pandas.
 
-2. Data Cleaning
+6.2 Data Cleaning
 
-Missing values are checked and dropped using dropna().
+Removing missing values using dropna().
 
-3. Label Transformation
+6.3 Label Transformation
 
-The quality column is converted into a binary label called quality_label depending on the specified threshold.
+Creating a new binary column:
 
-4. Feature Scaling
+quality_label = 1 if quality ≥ 6 else 0
 
-Standardization is applied using StandardScaler to normalize all continuous variables.
+6.4 Feature Scaling
 
-5. Train-Test Split
+Using StandardScaler to normalize input variables.
 
-The data is split into training and test sets using an 80:20 ratio.
+6.5 Train-Test Split
 
-6. ANN Model Creation
+Splitting into 80% training and 20% testing.
 
-A Sequential neural network is defined with ReLU activation in hidden layers and a sigmoid output layer.
+6.6 Model Creation
 
-7. Model Training
+Building a Sequential ANN model with ReLU and Sigmoid layers.
 
-The model is trained for 50 epochs with validation on a portion of the training data.
+6.7 Model Training
 
-8. Model Evaluation
+Training for 50 epochs with validation monitoring.
 
-The notebook computes:
+6.8 Model Evaluation
+
+Generating:
 
 Accuracy
 
@@ -113,41 +118,41 @@ Confusion matrix
 
 Classification report
 
-Training curves for accuracy and loss
+Training and validation curves
 
-9. Forward and Backward Pass Demonstration
+6.9 Forward & Backward Pass Illustration
 
-The notebook includes additional educational sections illustrating:
+The notebook includes:
 
-Manual forward pass
+Manual forward propagation
 
-Gradient computation using tf.GradientTape()
-These help explain how ANN training works internally.
+Gradient calculation with tf.GradientTape()
 
-How to Run This Project
+This section demonstrates ANN fundamentals in detail.
 
-Install required packages:
-
+7. How to Run This Project
+Install Dependencies
 pip install numpy pandas scikit-learn tensorflow matplotlib seaborn
 
+Execute the Notebook
 
-Run the notebook:
+Open ANN.ipynb and run all cells sequentially in Jupyter Notebook or VS Code.
 
-Open ANN.ipynb in Jupyter Notebook or VS Code and execute cells sequentially.
+All results, graphs, and metrics will appear inline.
 
+8. Future Enhancements
 
-Results will display directly in the notebook, including accuracy, loss plots, predictions, and performance metrics.
+Additional hidden layers
 
-Future Enhancements
+Regularization (Dropout, BatchNorm)
 
-Add additional hidden layers or use regularization (Dropout, Batch Normalization)
+Hyperparameter optimization
 
-Tune hyperparameters such as learning rate, number of neurons, and activation functions
+Multi-class quality prediction
 
-Expand classification to multi-class (predict actual quality score rather than binary label)
+Deployment using Streamlit, Flask, or FastAPI
 
-Deploy the trained model as a web application (Flask, FastAPI, or Streamlit)
+Comparison with Random Forest, SVM, XGBoost
 
-Compare ANN with other algorithms such as Random Forest, SVM, or XGBoost
-
+9. Repository Banner
 ![Project Banner](banner_image.png)
