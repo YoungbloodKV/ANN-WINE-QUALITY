@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="banner_image.png" width="100%">
+</p>
 Wine Quality Classification using Artificial Neural Networks (ANN)
 
 This project implements a lightweight Artificial Neural Network to classify wine samples as Good or Bad based on their physicochemical properties. The model is trained on the WineQT dataset and follows a complete machine learning workflow including preprocessing, model training, evaluation, and result visualization.
@@ -146,3 +149,5 @@ Expand classification to multi-class (predict actual quality score rather than b
 Deploy the trained model as a web application (Flask, FastAPI, or Streamlit)
 
 Compare ANN with other algorithms such as Random Forest, SVM, or XGBoost
+
+![Project Banner](banner_image.png)
