@@ -1,6 +1,6 @@
 # Wine Quality Classification using Artificial Neural Networks (ANN)
 
-<p align="center"> <img src="banner_image.png" width="8%"> </p>
+<p align="center"> <img src="banner_image.png" width="80%"> </p>
 
 ------------------------------------------------------------------------
 
